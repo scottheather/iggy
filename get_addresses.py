@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import configparser
 import json
+import os
 import random
 import time
 
@@ -14,10 +15,12 @@ from sqlalchemy import create_engine
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-data = gpd.read_file(
-    "data/bigquery-public-data--geo-openstreetmap--bars/bigquery-public-data-geo-openstreetmap-bars-point.shp"
+file = os.path.join(
+    "data",
+    "bigquery-public-data--geo-openstreetmap--bars/bigquery-public-data-geo-openstreetmap-bars-point.shp",
 )
-data = data.to_crs(4326)
+
+data = gpd.read_file(file, crs=4326)
 MAPBOX_ACCESS_TOKEN = config["MAPBOX"]["ACCESS_TOKEN"]
 
 places = []

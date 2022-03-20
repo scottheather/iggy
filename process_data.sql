@@ -17,31 +17,7 @@ where ST_DWITHIN(a.wkb_geometry,b.wkb_geometry,50)
 and levenshtein(a.name,b.trade_name,0,1,1) <= 4
 or levenshtein(a.name,b.applicant,0,1,1) <= 4;
 
-
--- find bars that don't intersect with a building footprint (40)
-select
-	a.name,
-	a.address,
-	a.wkb_geometry
-from osm_bars a
-left join 
-	building_footprints bf
-	on st_intersects(a.wkb_geometry,bf.wkb_geometry)
-	where bf.ogc_fid is null;
-	
--- find duplicate bar names (2)
-select 
-	name, count(*)
-	from osm_bars
-	group by "name"
-	having count(*) > 1;
-
--- duplicate bars at addresses (8)
-select 
-	address, count(*)
-	from osm_bars
-	group by address
-	having count(*) > 1;
+update osm_bars set liquor_license = false where liquor_license is not true;
 
 ---- 
 do
@@ -239,7 +215,7 @@ update grouped a
 
 update grouped set occupancy = (average_calc*.50)/15 where sq_footage is null;
 
--- Create final table
+-- Create final tables
 drop table if exists final;
 create table final as
 	select
