@@ -29,7 +29,7 @@ while attempts < max_attempts:
     for index, row in data.iterrows():
         lon = row["geometry_x"] # YOU WILL NEED TO REPLACE WITH YOUR LONGITUDE COLUMN
         lat = row["geometry_y"] # YOU WILL NEED TO REPLACE WITH YOUR LATITUDE COLUMN
-        osm_id = row["osm_id"]  # keep id column to compare to original table
+        ID = row ["id"] # YOUR ID COLUMN
         r = requests.get(
             "https://api.mapbox.com/geocoding/v5/mapbox.places/{},{}.json?types=country,region,address&access_token={}".format(
                 lon, lat, MAPBOX_ACCESS_TOKEN
