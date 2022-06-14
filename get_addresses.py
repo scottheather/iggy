@@ -45,8 +45,8 @@ while attempts < max_attempts:
             places.append((lat, lon, address, #YOUR ID COLUMN))
     # stop once we've done all features without an address
     # unless we hit a rate-limit
-    if r.status_code != 429:
-        break
+        if r.status_code != 429:
+            break
         # If rate limited, wait and try again
-    time.sleep((2**attempts) + random.random())
-    attempts = attempts + 1
+        time.sleep((2**attempts) + random.random())
+        attempts = attempts + 1
