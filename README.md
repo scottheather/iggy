@@ -5,10 +5,10 @@ In order to run `get-addresses.py`, you will need:
   -  a csv file of latitude/longitude coordinate pairs that need geocoding
 ## Files you'll need
 This repo is an old one from a coding challenge. You'll only be using:
-  - get-addresses.py
-  - requirements.txt
-  - spatia-lite.cache (you won't need to create, this happens automatically on run)
-  - 'sample.csv' (replace this with your own input, looks like below:)
+  - `get-addresses.py`
+  - `requirements.txt`
+  - `spatial-cache.sqlite` (you won't need to create, this happens automatically on run)
+  - `sample.csv` (replace this with your own input, looks like below:)
 
 example_file.csv:
 ```
@@ -28,6 +28,6 @@ Everything else, just ignore :)
 3) Once you have changes in place, you can just run `python get-addresses.py`. It will perform the following:
 
   - Print the first result of each api call in your terminal
-  - Cache results to spatialite-cache.sql (this just means that if api calls are interrupted you can re-run the python script and it will basically pick up where it left off without starting queries over
-  - update your input csv with placenames
+  - Cache results to `spatial-cache.sqlite` (this just means that if api calls are interrupted you can re-run the python script and it will basically pick up where it left off without starting queries over
+  - create an output csv with placenames
 
