@@ -9,12 +9,13 @@ import pandas as pd
 import requests
 import requests_cache
 from mapbox import Geocoder
-from sqlalchemy import create_engine
 
-config = configparser.ConfigParser()
-config.read("config.ini")
+config = configparser.ConfigParser() ## YOU CAN IGNORE THESE LINES, DELETE THEM FROM YOUR RUN
+config.read("config.ini") ## YOU CAN IGNORE THESE LINES, DELETE THEM FROM YOUR RUN
 
-data = gpd.read_file(file, crs=4326) # LOAD DATA WITH X, Y values
+file = 'sample.csv'
+
+data = pd.read_file(file, crs=4326) # LOAD DATA WITH X, Y values
 MAPBOX_ACCESS_TOKEN = config["MAPBOX"]["ACCESS_TOKEN"]
 # YOU CAN REPLACE AS: 
     # MAPBOX_ACCESS_TOKEN = "your token here"
