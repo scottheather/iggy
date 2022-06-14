@@ -3,6 +3,12 @@ In order to run `get-addresses.py`, you will need:
   - python3.6+
   -  a mapbox token 
   -  a csv file of latitude/longitude coordinate pairs that need geocoding
+## Files you'll need
+This repo is an old one from a coding challenge. You'll only be using:
+  - get-addresses.py
+  - requirements.txt
+  - spatia-lite.cache (you won't need to create, this happens automatically on run)
+  - 'sample.csv' (replace this with your own input, looks like below:)
 
 example_file.csv:
 ```
@@ -11,6 +17,10 @@ example_file.csv:
 3,31.788443665770124,-93.32883496460246
 ```
 (It can have more columns, it just needs an id, latitude, & longitude
+
+Everything else, just ignore :)
+
+## Running
 
 1) Get your local python environment ready by running:
 `python -m pip install -r requirements.txt`
