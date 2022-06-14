@@ -42,9 +42,9 @@ while attempts < max_attempts:
             place_name = response["features"][0]["place_name"]
             address = place_name.split(",")[0]
             print(lat, lon, address)
-            places.append((lat, lon, address, #YOUR ID COLUMN))
-    # stop once we've done all features without an address
-    # unless we hit a rate-limit
+            places.append((lat, lon, id)) # your column id
+        # stop once we've done all features without an address
+        # unless we hit a rate-limit
         if r.status_code != 429:
             break
         # If rate limited, wait and try again
